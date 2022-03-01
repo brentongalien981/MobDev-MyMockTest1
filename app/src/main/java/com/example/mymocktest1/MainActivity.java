@@ -2,11 +2,14 @@ package com.example.mymocktest1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
@@ -48,6 +51,22 @@ public class MainActivity extends AppCompatActivity {
         // TODO: Draw paths.
 
 //        chartImageView.invalidate();
+
+
+        // Add event-handler to the-button.
+        Button theBtn = (Button) findViewById(R.id.theBtn);
+        theBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                int[] passedIntArr = {1, 2, 3};
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("passedIntArr", passedIntArr);
+
+                startActivity(intent);
+
+            }
+        });
     }
 
 
